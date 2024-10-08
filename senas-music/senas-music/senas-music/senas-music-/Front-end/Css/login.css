@@ -1,0 +1,81 @@
+body {
+    background-image: url('../imgs/universo.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+.TelaLogin {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-box1{
+    backdrop-filter: blur(5px);
+    margin-top: 15%;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: solid;
+    border-color: white;
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+}
+input{
+   
+  
+        border-radius: 20px;
+        height: 30px;
+        margin: 5px;
+        width: 250px;   
+        background: transparent;
+        border: 2px solid white; 
+        color: white;
+    
+    
+    
+    
+
+}
+
+h1{
+    color: aliceblue;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+button{
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid white;
+
+}
+.fotoLogin, .FotoSenha{
+    left: 200px;
+
+}
+.fotoLogin{
+   position: relative;
+   top: -130px;
+   left: 240px;
+   width: 30px;
+   
+    
+}
+.FotoSenha{
+    position: relative;
+    width: 40px;
+    top: -80px;
+}
+.data-nascimento{
+    width: 20px;
+}
+p{
+    font-family: verdana;
+}

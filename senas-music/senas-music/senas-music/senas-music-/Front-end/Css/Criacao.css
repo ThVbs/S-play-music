@@ -1,0 +1,41 @@
+body{
+    background-image: url('../imgs/fotofundo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+input{
+    border-radius: 20px;
+    border: none;
+}
+.container-box2{
+    backdrop-filter: blur(5px);
+    margin-top: 15%;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: solid;
+    border-color: white;
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+    display: grid;
+    place-items: center;
+
+    
+}
+.input-email, .input-nome, .input-senha1, .input-senha2{
+    width: 250px;
+    height: 30px;
+    margin: -15px;
+    top: 20px;
+    position: relative;
+    top: 20px;
+    background: transparent;
+    border: solid white;
+}
+button{
+    border-radius: 20px;
+    border: none;
+    top: -30px;
+    position: relative;
+}
