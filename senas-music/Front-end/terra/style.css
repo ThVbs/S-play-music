@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+#c {
+    display: block;
+}
+#info {
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+#info img {
+    max-width: 100px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#info p {
+    margin: 5px 0 0;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}

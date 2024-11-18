@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senas music</title>
+    <title>Criação de Conta</title>
+
     <link rel="stylesheet" href="../Css/login.css">
-    <script src="../Js/script.js"></script> 
+    <script src="../Js/script2.js" defer></script> 
 </head>
 <body>
-   <div class="container-box1">
-    <center><h1>Login</h1></center>
-    <center><input type="text" placeholder="Digite seu e-mail"></center>
-    <center><input type="password" placeholder="Digite sua senha"></center>
-    <center><button>Login</button></center>
-    <center><a href="criarConta.html">Nâo tem conta? Cadastre-se</a></center>
-    <img class="fotoLogin" src="../imgs/foto_legal-removebg-preview.png" alt="f1L">
-    <img  class="FotoSenha" src="../imgs/Captura_de_tela_2024-10-07_145706-removebg-preview.png" alt="f2L">
+    
+    <div id="video-fundo">
+        <video id="video-animacao" src="../animacoes/animaçao3.mp4.mp4" muted playsinline loop autoplay></video>
+    </div>
 
-   </div>
+
+    <div class="container-box2" id="container-box2">
+        <input class="input-email" type="text" placeholder="Insira seu e-mail" id="email" required><br><br>
+        <input class="input-senha1" type="password" placeholder="Senha" id="senha1" required><br><br>
+        <a href="inicio.html"><button>logar</button></a>
+            <a href="criarConta.html">
+        <p>Não possui conta? crie uma</p></a>
+       
+    </div>
+
+  
+    <div id="video-container" class="hidden">
+        <video id="confirmacao-video" src="../animacoes/animaçao3.mp4.mp4" autoplay muted playsinline></video>
+    </div>
+
 </body>
-</html>  
+</html>

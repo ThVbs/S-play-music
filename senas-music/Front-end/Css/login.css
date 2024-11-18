@@ -1,81 +1,148 @@
-body {
-    background-image: url('../imgs/universo.jpg'); 
-    background-size: cover; 
-    background-repeat: no-repeat; 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Evita o scroll */
 }
 
-.TelaLogin {
-    display: grid;
-    justify-content: center;
-    align-items: center;
+/* Ajustando o contêiner de vídeo */
+#video-fundo {
+    position: fixed;  /* Usando fixed para garantir que o vídeo cubra a tela toda */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-.container-box1{
-    backdrop-filter: blur(5px);
-    margin-top: 15%;
-    margin-left: 40%;
-    margin-right: 40%;
-    border: solid;
-    border-color: white;
+#video-fundo video {
+    object-fit: cover;  /* Garante que o vídeo cubra toda a tela sem distorcer */
+    width: 100%;
+    height: 100%;
+}
+
+
+.container-box2 {
+    backdrop-filter: blur(15px); 
+    margin-top: 10%; /* Ajuste para a posição vertical da caixa */
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #ffffff;
     border-radius: 20px;
-    height: 300px;
-    width: 300px;
-    box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
-}
-input{
-   
-  
-        border-radius: 20px;
-        height: 30px;
-        margin: 5px;
-        width: 250px;   
-        background: transparent;
-        border: 2px solid white; 
-        color: white;
-    
-    
-    
-    
-
-}
-
-h1{
-    color: aliceblue;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-}
-button{
-    border-radius: 20px;
-    border: none;
-    width: 200px;
-    height: 30px;
-    background: transparent;
-    border: 2px solid white;
-
-}
-.fotoLogin, .FotoSenha{
-    left: 200px;
-
-}
-.fotoLogin{
-   position: relative;
-   top: -130px;
-   left: 240px;
-   width: 30px;
-   
-    
-}
-.FotoSenha{
+    width: 250px; 
+    height: 300px;  
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
     position: relative;
-    width: 40px;
-    top: -80px;
+    z-index: 1;
+    color: white;
+    left: 30%;
 }
-.data-nascimento{
-    width: 20px;
+
+
+
+.input-email, .input-nome, .input-senha1, .input-senha2, .nomeCompleto {
+    width: 100%;
+    height: 30px; 
+    margin-bottom: -20px; 
+    padding: 8px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 12px;
+    border: 1px solid #ffffff; 
+    color: white; 
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+
+.input-email:focus, .input-nome:focus, .input-senha1:focus, .input-senha2:focus {
+    border-color: #00bcd4; 
+    background-color: rgba(0, 188, 212, 0.2);
+    outline: none;
+}
+
+
+input[type="date"] {
+    width: 100%;
+    height: 30px; 
+    margin-bottom: 3px; 
+    padding: 8px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 12px;
+    border: 1px solid #ffffff; 
+    color: white; 
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bcd4; 
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px; 
+}
+
+button:hover {
+    background-color: #008c99; 
+}
+
+button:active {
+    background-color: #007d87; 
+}
+
+button {
+    border-radius: 12px;
+    border: none;
+    border-color: white;
+    padding: 20px;
+    position: relative;
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: green;
+    animation-delay: 10.5s;
+}
+
+#video-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 10;
+}
+
+#video-container video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.hidden {
+    display: none;
+}
+
+input::placeholder {
+    color: white; 
 }
 p{
-    font-family: verdana;
+    color: white;
 }
