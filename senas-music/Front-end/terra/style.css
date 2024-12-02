@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,26 +9,44 @@ body {
     overflow: hidden;
     font-family: Arial, sans-serif;
 }
+
 #c {
     display: block;
-}
-#info {
     position: absolute;
-    display: block;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-#info img {
-    max-width: 100px;
-    border: 2px solid white;
-    border-radius: 10px;
+#image-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
-#info p {
-    margin: 5px 0 0;
-    color: white;
-    font-size: 14px;
-    text-align: center;
+
+.cycle-image {
+    position: relative;
+    max-width: 150px;
+    max-height: 150px;
+    transition: opacity 1s ease-in-out;
+    left: 200px;
+
+
+}
+
+#image1 {
+    top: 0px;
+    left: 0px;
+}
+
+#image2 {
+    top: 0px;
+    left: 200px;
+}
+.foto1{
+    position: relative;
+    left: 200px;
+    max-width: 150px;
+    max-height: 150px;
+
 }

@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criação de Conta</title>
+    <title>Login</title>
 
+    <
     <link rel="stylesheet" href="../Css/login.css">
-    <script src="../Js/script2.js" defer></script> 
+
+    >
+    <script src="../Js/script2.js" defer></script>
 </head>
 <body>
     
@@ -14,20 +17,29 @@
         <video id="video-animacao" src="../animacoes/animaçao3.mp4.mp4" muted playsinline loop autoplay></video>
     </div>
 
-
+    
     <div class="container-box2" id="container-box2">
-        <input class="input-email" type="text" placeholder="Insira seu e-mail" id="email" required><br><br>
+        <h2>Bem-vindo de volta</h2>
+
+    
+        <input class="input-email" type="email" placeholder="Insira seu e-mail" id="email" required><br><br>
+
+        >
         <input class="input-senha1" type="password" placeholder="Senha" id="senha1" required><br><br>
-        <a href="inicio.html"><button>logar</button></a>
-            <a href="criarConta.html">
-        <p>Não possui conta? crie uma</p></a>
-       
+
+        
+        <button onclick="logar()">Logar</button><br><br>
+
+        
+        <p id="mensagem" style="color: red;"></p>
+
+        
+        <p>Não possui conta? <a href="criarConta.html">Crie uma agora</a></p>
     </div>
 
-  
+
     <div id="video-container" class="hidden">
         <video id="confirmacao-video" src="../animacoes/animaçao3.mp4.mp4" autoplay muted playsinline></video>
     </div>
-
 </body>
 </html>

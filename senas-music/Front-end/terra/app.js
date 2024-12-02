@@ -1,12 +1,23 @@
-let scene;
-let camera;
-let renderer;
+let cycleIndex = 0; 
+const imageSpeedFactor = 200; 
+const initialPositions = [
+    { left: 1500, top: 100 }, 
+    { left: 750, top: 300 }, 
+    { left: 780, top: '50%' }, 
+    { left: 40, top: '5%' }, 
+    { left: 70, top: '10%' }, 
+    { left: 70, top: '50%' }, 
+    { left: 80, top: '30%' }, 
+    { left: 20, top: '70%' },
+];
+
+let cycleCompleted = false; 
+
 
 function main() {
     const canvas = document.querySelector('#c');
 
     scene = new THREE.Scene();
-
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 2;
     scene.add(camera);
@@ -14,102 +25,126 @@ function main() {
     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-
     renderer.autoClear = false;
-    renderer.setClearColor(0x00000, 0.0);
+    renderer.setClearColor(0x000000, 0.0);
 
-    // create earth geometry
-    const earthgeometry = new THREE.SphereGeometry(0.6, 32, 32);
 
-    const earthmaterial = new THREE.MeshPhongMaterial({
+    const earthGeometry = new THREE.SphereGeometry(0.6, 32, 32);
+    const earthMaterial = new THREE.MeshPhongMaterial({
         roughness: 1,
         metalness: 0,
-        map: THREE.ImageUtils.loadTexture('texture/earthmap1k.jpg'),
-        bumpMap: THREE.ImageUtils.loadTexture('texture/earthbump.jpg'),
+        map: new THREE.TextureLoader().load('texture/earthmap1k.jpg'),
+        bumpMap: new THREE.TextureLoader().load('texture/earthbump.jpg'),
         bumpScale: 0.3,
     });
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    scene.add(earthMesh);
 
-    const earthmesh = new THREE.Mesh(earthgeometry, earthmaterial);
-    scene.add(earthmesh);
 
-    // set ambient light
-    const ambientlight = new THREE.AmbientLight(0xffffff, 0.2);
-    scene.add(ambientlight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+    scene.add(ambientLight);
 
-    // set point light
-    const pointerlight = new THREE.PointLight(0xffffff, 0.9);
-    pointerlight.position.set(5, 3, 5);
-    scene.add(pointerlight);
+    const pointerLight = new THREE.PointLight(0xffffff, 0.9);
+    pointerLight.position.set(5, 3, 5);
+    scene.add(pointerLight);
 
-    // cloud
-    const cloudgeometry = new THREE.SphereGeometry(0.63, 32, 32);
-
-    const cloudmaterial = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture('texture/earthCloud.png'),
-        transparent: true
+    const cloudGeometry = new THREE.SphereGeometry(0.63, 32, 32);
+    const cloudMaterial = new THREE.MeshPhongMaterial({
+        map: new THREE.TextureLoader().load('texture/earthCloud.png'),
+        transparent: true,
     });
+    const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+    scene.add(cloudMesh);
 
-    const cloudmesh = new THREE.Mesh(cloudgeometry, cloudmaterial);
-    scene.add(cloudmesh);
-
-    // star
-    const stargeometry = new THREE.SphereGeometry(80, 64, 64);
-
-    const starmaterial = new THREE.MeshBasicMaterial({
-        map: THREE.ImageUtils.loadTexture('texture/galaxy.png'),
-        side: THREE.BackSide
-    });
-
-    const starmesh = new THREE.Mesh(stargeometry, starmaterial);
-    scene.add(starmesh);
-
-    const contentElement = document.createElement('div');
-    contentElement.id = 'content';
-    contentElement.style.position = 'absolute';
-    contentElement.style.top = '10px';
-    contentElement.style.left = '10px';
-    contentElement.style.color = '#fff';
-    contentElement.style.display = 'none';
-    contentElement.innerHTML = `
-        <img id="image" src="" style="max-width: 200px; display: block;" />
-        <p id="song" style="margin: 10px 0 0;">Song Name</p>
-    `;
-    document.body.appendChild(contentElement);
-
-    let contentShown = false;
-
-    const animate = () => {
+    function animate() {
         requestAnimationFrame(animate);
 
-        earthmesh.rotation.y -= 0.0020; // Velocidade de rotação da Terra
-        cloudmesh.rotation.y += 0.0015;
-        starmesh.rotation.y += 0.0005;
 
-        const targetRotation = -Math.PI / 2; // Aproximadamente onde está Portugal no eixo Y
-        if (!contentShown && Math.abs(earthmesh.rotation.y - targetRotation) < 0.01) {
-            contentShown = true;
-            displayContent();
-        }
+        earthMesh.rotation.y -= 0.0025; 
+        cloudMesh.rotation.y += 0.0015; 
 
-        render();
-    };
-
-    const render = () => {
+        moveAllImagesLeft(0.0025); 
         renderer.render(scene, camera);
-    };
-
-    const displayContent = () => {
-        const content = document.getElementById('content');
-        const image = document.getElementById('image');
-        const song = document.getElementById('song');
-
-        image.src = 'images/acdc.png'; // Substitua pelo caminho da imagem desejada
-        song.textContent = 'Back in Black - AC/DC'; // Substitua pelo nome da música desejada
-
-        content.style.display = 'block';
-    };
+    }
 
     animate();
+    startImageCycle(); 
 }
+
+
+function moveAllImagesLeft(speed) {
+    const images = document.querySelectorAll('.cycle-image'); 
+    let allImagesOutOfScreen = true; 
+
+    images.forEach((image) => {
+        const currentLeft = parseFloat(image.style.left); 
+        if (!isNaN(currentLeft)) {
+            
+            if (currentLeft < -200) {
+                image.style.left = `${window.innerWidth}px`; 
+            } else {
+                image.style.left = `${currentLeft - speed * imageSpeedFactor}px`; 
+            }
+            if (currentLeft > -200) {
+                allImagesOutOfScreen = false; 
+            }
+        }
+    });
+
+   
+    if (allImagesOutOfScreen && !cycleCompleted) {
+        cycleCompleted = true; 
+        resetImagesPosition(); 
+        cycleCompleted = false; 
+    }
+}
+
+
+function startImageCycle() {
+    const images = document.querySelectorAll('.cycle-image');
+    const totalImages = images.length; 
+
+    setInterval(() => {
+
+        const currentImg1Index = cycleIndex % totalImages;
+        const currentImg2Index = (cycleIndex + 1) % totalImages;
+
+        images[currentImg1Index].style.opacity = 0;
+        images[currentImg2Index].style.opacity = 0;
+
+
+        setTimeout(() => {
+            const nextImg1Index = (cycleIndex + 2) % totalImages;
+            const nextImg2Index = (cycleIndex + 3) % totalImages;
+
+            images[nextImg1Index].style.opacity = 1;
+            images[nextImg2Index].style.opacity = 1;
+
+          
+            cycleIndex = (cycleIndex + 2) % totalImages;
+        }, 1000); 
+    }, 5000); 
+}
+
+
+function resetImagesPosition() {
+    const images = document.querySelectorAll('.cycle-image');
+    images.forEach((image, index) => {
+        const position = initialPositions[index];
+
+        image.style.left = `${position.left}px`;
+        image.style.top = position.top;
+        image.style.opacity = 1; 
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const music = document.getElementById('background-music');
+
+
+    music.play().catch(() => {
+        console.warn('A reprodução automática foi bloqueada pelo navegador.');
+    });
+});
+
 
 window.onload = main;
