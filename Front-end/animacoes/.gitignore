@@ -1,0 +1,16 @@
+# Ignorar arquivos fora do projeto e diretórios específicos do sistema
+../*
+*.lnk
+.vscode/
+node_modules/
+AppData/
+Desktop/
+Documents/
+Downloads/
+Music/
+Pictures/
+Videos/
+NTUSER.DAT*
+ntuser.*
+OneDrive/
+'

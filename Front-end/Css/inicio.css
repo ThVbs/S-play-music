@@ -1,0 +1,128 @@
+:root {
+  --default-width: 20vw;
+  --default-max-width: 300px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-image: url("../imgs/fotoboa-8zj1kfW5D-transformed.png");
+  background-size: cover; /* A imagem cobre a tela inteira */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Fixa o fundo */
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Estilo Base para Imagens */
+img {
+  height: auto;
+  width: var(--img-width, var(--default-width));
+  max-width: var(--img-max-width, var(--default-max-width));
+  margin: var(--img-margin, 10px);
+  position: relative;
+  left: var(--img-left, 0);
+  top: var(--img-top, 0);
+}
+
+/* Classes Específicas para Imagens */
+.terra {
+  --img-width: 20vw;
+  --img-max-width: 300px;
+  --img-left: 0;
+  --img-top: 0;
+}
+
+.likin {
+  --img-width: 25vw;
+  --img-max-width: 120px;
+  --img-left: 710px;
+  --img-top: 180px;
+}
+
+.acdc {
+  --img-width: 15vw;
+  --img-max-width: 70px;
+  --img-left: 328px;
+  --img-top: 180px;
+}
+
+.metalica {
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 780px;
+  --img-top: 250px;
+}
+
+.kiss {
+  --img-width: 30vw;
+  --img-max-width: 300px;
+  --img-left: -100px;
+  --img-top: 150px;
+}
+.black{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 730px;
+  --img-top: 450px;
+}
+.red{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 340px;
+  --img-top: 420px;
+}
+.iron{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 290px;
+  --img-top: 380px;
+}
+.splip{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 1020px;
+  --img-top: 200px;}
+.skilit{
+  --img-width: 30vw;
+  --img-max-width: 150px;
+  --img-left: 550px;
+  --img-top: 400px;
+}
+
+/* Ajustes para Tablets */
+@media (max-width: 768px) {
+  body {
+    background-size: contain; /* Mantém a proporção em tablets */
+    background-attachment: scroll;
+  }
+
+  img {
+    --img-width: 30vw;
+    --img-max-width: 250px;
+  }
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 480px) {
+  body {
+    background-size: contain;
+    background-position: top; /* Foco no topo em telas pequenas */
+  }
+
+  img {
+    --img-width: 40vw;
+    --img-max-width: none;
+  }
+}
