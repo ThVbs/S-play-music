@@ -50,3 +50,8 @@ body {
     max-height: 150px;
 
 }
+.back-button img {
+    width: 300px; /* Ajuste o tamanho da imagem */
+    height: auto;
+    cursor: pointer;
+}

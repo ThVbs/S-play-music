@@ -1,3 +1,8 @@
+:root {
+  --default-width: 20vw;
+  --default-max-width: 300px;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #121212;
@@ -5,22 +10,120 @@ body {
   margin: 0;
   padding: 0;
   background-image: url("../imgs/fotoboa-8zj1kfW5D-transformed.png");
-  background-size: cover;
+  background-size: cover; /* A imagem cobre a tela inteira */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Fixa o fundo */
   background-repeat: no-repeat;
 }
 
-.terra{
-  position: relative;
-  top: 300px;
-  left: 500px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
 }
-.likin, .acdc, .iron,  .splip, .skilit, .red, .black{
-  position: relative;
-  height: 50px;
-  width: 100px;
 
+/* Estilo Base para Imagens */
+img {
+  height: auto;
+  width: var(--img-width, var(--default-width));
+  max-width: var(--img-max-width, var(--default-max-width));
+  margin: var(--img-margin, 10px);
+  position: relative;
+  left: var(--img-left, 0);
+  top: var(--img-top, 0);
 }
-.likin{
-  top: 300px;
-  left: 250px;
+
+/* Classes Específicas para Imagens */
+.terra {
+  --img-width: 20vw;
+  --img-max-width: 300px;
+  --img-left: 0;
+  --img-top: 0;
+}
+
+.likin {
+  --img-width: 25vw;
+  --img-max-width: 120px;
+  --img-left: 710px;
+  --img-top: 220px;
+}
+
+.acdc {
+  --img-width: 15vw;
+  --img-max-width: 100px;
+  --img-left: 320px;
+  --img-top: 205px;
+}
+
+.metalica {
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 170px;
+  --img-top: 230px;
+}
+
+.kiss {
+  --img-width: 30vw;
+  --img-max-width: 250px;
+  --img-left: 0;
+  --img-top: 150px;
+}
+.black{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 0;
+  --img-top: 400px;
+}
+.red{
+  --img-width: 30vw;
+  --img-max-width: 150px;
+  --img-left: 625px;
+  --img-top: 470px;
+}
+.iron{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 260px;
+  --img-top: 400px;
+}
+.splip{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 1300px;
+  --img-top: 280px;
+}
+.skilit{
+  --img-width: 30vw;
+  --img-max-width: 100px;
+  --img-left: 830px;
+  --img-top: 480px;
+}
+
+/* Ajustes para Tablets */
+@media (max-width: 768px) {
+  body {
+    background-size: contain; /* Mantém a proporção em tablets */
+    background-attachment: scroll;
+  }
+
+  img {
+    --img-width: 30vw;
+    --img-max-width: 250px;
+  }
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 480px) {
+  body {
+    background-size: contain;
+    background-position: top; /* Foco no topo em telas pequenas */
+  }
+
+  img {
+    --img-width: 40vw;
+    --img-max-width: none;
+  }
 }

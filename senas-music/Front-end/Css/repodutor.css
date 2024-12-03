@@ -8,16 +8,32 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+}
+
+.back-button {
+    position: absolute;
+    top: 20px; /* Ajuste o valor conforme necessário */
+    left: 20px; /* Ajuste o valor conforme necessário */
+    z-index: 10; /* Garante que o botão fique sobreposto */
+}
+
+.back-button img {
+    width: 300px; /* Ajuste o tamanho da imagem */
+    height: auto;
+    cursor: pointer;
 }
 
 .player-container {
-    text-align: center;
     max-width: 400px;
     background-color: #1c1c1c;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     width: 300px;
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo dentro da div */
 }
 
 .album-art {
@@ -119,4 +135,9 @@ body {
     color: #b3b3b3;
     width: 50px;
     text-align: center;
+}
+.voltar img {
+    width: 500px; /* Aumenta o tamanho da imagem dentro da div */
+    height: auto; /* Mantém a proporção da imagem */
+    cursor: pointer;
 }
