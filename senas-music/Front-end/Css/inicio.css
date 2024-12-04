@@ -46,53 +46,53 @@ img {
 
 .likin {
   --img-width: 25vw;
-  --img-max-width: 120px;
-  --img-left: 710px;
-  --img-top: 220px;
+  --img-max-width: 100px;
+  --img-left: 500px;
+  --img-top: 80px;
 }
 
 .acdc {
   --img-width: 15vw;
   --img-max-width: 100px;
-  --img-left: 320px;
+  --img-left: 240px;
   --img-top: 205px;
 }
 
 .metalica {
   --img-width: 30vw;
-  --img-max-width: 100px;
-  --img-left: 170px;
-  --img-top: 230px;
+  --img-max-width: 90px;
+  --img-left: 50px;
+  --img-top: 120px;
 }
 
 .kiss {
   --img-width: 30vw;
-  --img-max-width: 250px;
-  --img-left: 0;
-  --img-top: 150px;
+  --img-max-width: 220px;
+  --img-left: -20px;
+  --img-top: 50px;
 }
 .black{
   --img-width: 30vw;
-  --img-max-width: 100px;
-  --img-left: 0;
-  --img-top: 400px;
+  --img-max-width: 60px;
+  --img-left: -0px;
+  --img-top: 240px;
 }
 .red{
   --img-width: 30vw;
-  --img-max-width: 150px;
-  --img-left: 625px;
-  --img-top: 470px;
+  --img-max-width: 130px;
+  --img-left: 355px;
+  --img-top: 280px;
 }
 .iron{
   --img-width: 30vw;
   --img-max-width: 100px;
-  --img-left: 260px;
-  --img-top: 400px;
+  --img-left: 60px;
+  --img-top: 100px;
 }
 .splip{
   --img-width: 30vw;
-  --img-max-width: 100px;
-  --img-left: 1300px;
+  --img-max-width: 60px;
+  --img-left: 750px;
   --img-top: 280px;
 }
 .skilit{
